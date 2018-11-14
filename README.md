@@ -7,6 +7,7 @@ IoTKit V3 Disco Beispiele und Dokumentation
 
 * [Hardware](hw/)
 * [Software und Installation](sw/)
+* [Kleine C/C++ Einführung](ccpp/)
 * [GPIO](gpio/)
 * [Sensoren](sensors/)
 * [Aktoren](actors/)
