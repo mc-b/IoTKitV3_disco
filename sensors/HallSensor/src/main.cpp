@@ -2,9 +2,9 @@
 */
 #include "mbed.h"
 
-AnalogIn hallSensor( A2 );
-DigitalOut led1( D10 );
-DigitalOut led2( D11 );
+AnalogIn hallSensor( A3 );
+DigitalOut led1( LED1 );
+DigitalOut led2( LED2 );
 
 int main()
 {

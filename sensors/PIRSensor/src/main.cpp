@@ -3,7 +3,7 @@
 #include "mbed.h"
 
 DigitalIn pirSensor( A5 );
-DigitalOut licht( D10 );
+DigitalOut licht( LED1 );
 
 int main()
 {

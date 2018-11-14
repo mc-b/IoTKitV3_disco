@@ -27,8 +27,8 @@ Die Ganze Arbeit nimmt uns die [SR04](http://developer.mbed.org/users/ejteb/code
 ### Anschlussbelegung (Sensor - Shield)
 
 *   VCC - V (5 Volt)
-*   Trig - D5
-*   Echo - D6
+*   Trig - A4
+*   Echo - A5
 *   GND - G (Ground)
 
 ### Links
