@@ -28,7 +28,9 @@ Das Protokoll des I²C-Bus ist von der Definition her recht einfach, aber physik
 
 ### Beispiele
 
-* [mbed - Arduino Kommunikation](mbed2Arduino/)
-* [Sensorenausgabe auf Display](Sensoren/)
-* [Fitness Tracker](FitnessTrackerV2/)
+* [HelloWorld_ST_Sensors](https://os.mbed.com/teams/ST/code/HelloWorld_ST_Sensors/)
 * [OLED Display](OLEDDisplayTest/)
+* [Capacitive digital sensor for relative humidity and temperature (HTS221)](HTS221/)
+* [High-performance 3-axis magnetometer (LIS3MDL)](LIS3MDL/)
+* [3D accelerometer and 3D gyroscope (LSM6DSL)](LSM6DSL/)
+* [mbed - Arduino Kommunikation](mbed2Arduino/)

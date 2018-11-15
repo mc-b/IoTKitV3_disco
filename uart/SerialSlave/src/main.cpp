@@ -2,7 +2,7 @@
 */
 #include "mbed.h"
 
-DigitalOut led[] = { DigitalOut( D10, 1 ), DigitalOut( D11, 1 ), DigitalOut( D12, 1 ) };
+DigitalOut led[] = { DigitalOut( LED1, 1 ), DigitalOut( LED2, 1 ), DigitalOut( LED3, 1 ) };
 Serial serial( USBTX, USBRX );
 char buf[128];
 

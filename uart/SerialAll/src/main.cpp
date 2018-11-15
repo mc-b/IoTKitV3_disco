@@ -1,9 +1,9 @@
 /** Ausgabe auf allen Seriellen Schnttstellen auf dem IoTKit V3
 */
-#include <mbed.h>
+#include "mbed.h"
 
-// 4 x UART: USB, A2+A3, I2C Bus (Doppelbelegung), Serial auf IoTKit V3, PTC14+PTC15 an ESP8266, Bluetooth Header: PTD6+PTD7 nicht ansprechbar
-Serial serial[] = { Serial( USBTX, USBRX ), Serial( A3, A2 ), Serial( D15, D14 ), Serial( PTE4, PTE5 ) };
+// Beispiel 4 x UART - variert je nach Board
+Serial serial[] = { Serial( USBTX, USBRX ), Serial( A1, A0 ), Serial( D1, D0 ), Serial( A4, A5 ) };
 
 int main()
 {
