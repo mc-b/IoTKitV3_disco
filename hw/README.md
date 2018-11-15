@@ -43,6 +43,21 @@ Internet der Dinge Shield
 
 - - -
 
+Der IoTKit V3 Shield ist ein Arduino Header kompatibler Shield.
+
+Shield features
+* 1 x SPI Header
+* 1 x NFC/RFID Reader Header
+* 2 x UART Header (1x Grove)
+* 4 x Servo 4x3 Header
+* 2 x I2C Header (1x Grove)
+* 1 x Stepper, Door Opener, LED Strip Driver
+* 1 x Hall Sensor
+* 1 x OLED (128x64 Pixel)
+* 1 x H-Bridge
+* 8 x Analog/Digital 6x3 Header und 2 x Grove
+* 1 x Buzzer
+
 ### Zubehör
 
 *   **Sensoren** RFID Reader (MFRC-522), PIR Sensor (SR501), Ultrasonic Wave Detector Ranging Module (HC-SR04), Digital Temperature and Humidity Sensor (DHT11), Microswitch Limit Switch: [AliExpress](http://www.aliexpress.com/), [EBay](http://www.ebay.ch/), [Conrad](http://www.conrad.ch/) (teilweise)
