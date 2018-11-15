@@ -37,7 +37,9 @@ Internet der Dinge Board
 
 ### Internet der Dinge Shield
 
-Internet der Dinge Shield (folgt)
+![](../images/Shield.png)
+
+Internet der Dinge Shield 
 
 - - -
 
