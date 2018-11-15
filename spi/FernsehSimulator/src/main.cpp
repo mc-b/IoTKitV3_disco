@@ -4,7 +4,6 @@
 #include <time.h>
 
 SPI spi(D11, NC, D13); // mosi, miso, sclk
-AnalogIn poti( A0 );
 
 /** 3 x 3 Werte */
 unsigned int strip[9];
@@ -42,6 +41,6 @@ int main()
             strip[i] = rand() % 64 + 1;
             
         writeLED();
-        wait( poti.read() );          
+        wait( 0.5f );
     }
 }
