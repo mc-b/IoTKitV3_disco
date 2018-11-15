@@ -14,9 +14,9 @@
 
 Türöffner gibt es auch als elektrisches Bauteil. Der Riegel wird durch einen elektromagnetischen Magnet geöffnet.
 
-Ein Türöffner braucht eine höhere Spannung (12 Volt) als das Board zur Verfügung stellen kann. Deshalb ist eine Leistungsstufe, z.B. [MOSFET](http://de.wikipedia.org/wiki/Metall-Oxid-Halbleiter-Feldeffekttransistor), vorzuschalten.
+Ein Türöffner braucht eine höhere Spannung (5 - 12 Volt) als das Board zur Verfügung stellen kann. Deshalb ist eine Leistungsstufe, z.B. [MOSFET](http://de.wikipedia.org/wiki/Metall-Oxid-Halbleiter-Feldeffekttransistor), vorzuschalten.
 
-Der Türöffner wird an den FET(D5-D7) Header (oben) angeschlossen und mittels DigitalOut angesprochen.
+Der Türöffner wird an den STEPPER1+ Header (oben) angeschlossen und mittels DigitalOut angesprochen.
 
 ### Anwendungen 
 
@@ -25,4 +25,4 @@ Der Türöffner wird an den FET(D5-D7) Header (oben) angeschlossen und mittels D
 
 ### Links
 
-*  [Arm Mbed Online Compiler](https://os.mbed.com/compiler/#import:/teams/Disco-L475VG-IOT/code/TuerOeffner/)
+*  [Arm Mbed Online Compiler](https://os.mbed.com/compiler/#import:/teams/Disco-L475VG-IOT/code/DoorOpener/)

@@ -14,9 +14,7 @@ Ein ruhiger und schonender Motorlauf wird durch die Anpassung der PWM Periode (i
 
 *   Periode (s) = 1 / Frequenz (Hz = 1/s)
 
-Ein Motor benötigt die [Motor Library](http://developer.mbed.org/users/simon/code/Motor/) und eine Verstärkerschaltung, wie z.B. eine [H-Brücke](http://de.wikipedia.org/wiki/Br%C3%BCckenschaltung). Eine H-Brücke braucht einen PWM Pin und zwei beliebige Digital Pins pro Motor. Es können zwei Motoren an den DCMOT (D2-D7) Header angeschlossen werden.
-
-Für Feintuning des Fahrverhaltens, Geschwindigkeitkennlinien etc. siehe [Digital Decoder](http://www.esu.eu/download/betriebsanleitungen/digitaldecoder/) bei der Modelleisenbahn.
+Ein Motor benötigt die [Motor Library](http://developer.mbed.org/users/simon/code/Motor/) und eine Verstärkerschaltung, wie z.B. eine [H-Brücke](http://de.wikipedia.org/wiki/Br%C3%BCckenschaltung). Eine H-Brücke braucht einen PWM Pin und zwei beliebige Digital Pins pro Motor. Es kann jeweils ein Motor an M01 und M02 Header angeschlossen werden.
 
 ### Anwendungen 
 
@@ -24,5 +22,6 @@ Für Feintuning des Fahrverhaltens, Geschwindigkeitkennlinien etc. siehe [Digita
 
 ### Links 
 
-*   [Messung der Stromaufnahme des gesteuerten Motors](http://rn-wissen.de/wiki/index.php?title=Getriebemotoren_Ansteuerung#Messung_der_Stromaufnahme_des_gesteuerten_Motors)
-*  [Arm Mbed Online Compiler](https://os.mbed.com/compiler/#import:/teams/Disco-L475VG-IOT/code/Motor/)
+* [Messung der Stromaufnahme des gesteuerten Motors](http://rn-wissen.de/wiki/index.php?title=Getriebemotoren_Ansteuerung#Messung_der_Stromaufnahme_des_gesteuerten_Motors)
+* [Arm Mbed Online Compiler](https://os.mbed.com/compiler/#import:/teams/Disco-L475VG-IOT/code/Motor/)
+* [NXP Motion und Motor Control](https://www.nxp.com/applications/solutions/industrial/motion-and-motor-control:MOTOR-CONTROL)

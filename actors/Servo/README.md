@@ -30,7 +30,7 @@ Weitere Informationen und eine Ausführliche Einführung in Englisch [An Introdu
 
 ### Anschlussbelegung (Servo - Shield) 
 
-Der Servo wird mit 5V betrieben und kann direkt auf einen der G/V/S Header gesteckt werden. Zusätzlich existiert ein mit Servo1 und Servo2 bezeichnetes Steckerpaar. Das orange Kabel des Servo kommt auf S (Signal) bzw. zeigt nach links.
+Der Servo wird mit 5V betrieben und kann direkt auf einen der GND/+5V/S Header gesteckt werden. Das orange Kabel gehört auf S (Signal).
 
 ### Links
 

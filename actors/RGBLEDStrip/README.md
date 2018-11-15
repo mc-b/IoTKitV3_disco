@@ -1,4 +1,4 @@
-## 12V RGB LED Strip (Aktor) 
+## 5V RGB LED Strip (Aktor) 
 
 ![](../../images/actors/LEDStripsTreppe.png)
 
@@ -20,7 +20,7 @@ Es gibt unterschiedliche Arten der Ansteuerung, alle LED einer Farbe, jedes RGB 
 
 Im aktuellen Beispiel verwenden wird ein 5V LED Strip mit einem Anschluss pro Farbe. Diese brauchen einen Verstärker, z.B. [MOSFET](http://de.wikipedia.org/wiki/Metall-Oxid-Halbleiter-Feldeffekttransistor).
 
-Die LED Strip wird an den FET D5-D7) Header (+ ist oben) angeschlossen und benötigen für jede Farbe ein DigitalOut (An/Aus) oder PwmOut (Dimming).
+Die LED Strip wird an den Stepper Driver (D3, D5, D7) Header (+ ist oben) angeschlossen und benötigen für jede Farbe ein DigitalOut (An/Aus) oder PwmOut (Dimming).
 
 ### Anwendungen 
 
@@ -29,4 +29,6 @@ Die LED Strip wird an den FET D5-D7) Header (+ ist oben) angeschlossen und benö
 
 ### Links
 
-*  [Arm Mbed Online Compiler](https://os.mbed.com/compiler/#import:/teams/Disco-L475VG-IOT/code/RGBLEDStrip/)
+* [Arm Mbed Online Compiler](https://os.mbed.com/compiler/#import:/teams/Disco-L475VG-IOT/code/RGBLEDStrip/)
+* [DiiA: The global industry alliance for DALI lighting control](https://www.digitalilluminationinterface.org/)
+* [Zhaga](https://www.zhagastandard.org/)

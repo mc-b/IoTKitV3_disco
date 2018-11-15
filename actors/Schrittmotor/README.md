@@ -18,7 +18,7 @@ Ein Schrittmotor hat eine fixe Schrittanzahl pro Umdrehung. Beim verwendeten [28
 
 Zur erstmaligen Positionierung wird, in der Regel, ein Endstop Schalter verwendet. [CNC Maschinen](http://de.wikipedia.org/wiki/CNC-Maschine) besitzen zusätzlich, wegen der Verletzungsgefahr einen Notstopp Schalter mit Einrastfunktion.
 
-Ein unipolarer Schrittmotor benötigt die [Schrittmotor Library](http://developer.mbed.org/users/okano/code/StepperMotorUni/) und einen IC Treiber (wie [ULN2803N](http://www.mikrocontroller.net/part/ULN2803)) und 4 Digitale Pin&#039;s.
+Ein unipolarer Schrittmotor benötigt 4 Pins und einen IC Treiber (wie [ULN2803N](http://www.mikrocontroller.net/part/ULN2803)).
 
 Ein bipolarer Schrittmotor kann mittels der H-Brücke angesprochen werden, siehe Gleichstrom Motor und [Stepper bipolar](https://os.mbed.com/components/Stepper-motor-bipolar/)
 
@@ -28,4 +28,4 @@ Ein bipolarer Schrittmotor kann mittels der H-Brücke angesprochen werden, siehe
 
 ### Links
 
-*  [Arm Mbed Online Compiler](https://os.mbed.com/teams/Disco-L475VG-IOT/code/Disco_Steppers/)
+*  [Arm Mbed Online Compiler](https://os.mbed.com/teams/Disco-L475VG-IOT/code/Stepper/)

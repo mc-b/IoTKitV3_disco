@@ -1,4 +1,5 @@
-/** Beispiel RGB LED Strip 12 Volt Variante mit einer Leitung pro Farbe
+/** Beispiel RGB LED Strip 5 Volt Variante mit einer Leitung pro Farbe
+ *  Einstecken am STEPPER1+. +5V kommt an +, die anderen an D3, D5, D6.
 */
 #include "mbed.h"
 

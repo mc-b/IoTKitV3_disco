@@ -16,7 +16,7 @@
 //Time delay between steps in milliseconds
 #define TIME         100
 
-PwmOut myServo( D3 );
+PwmOut myServo( D6 );
 
 int main() {
     
