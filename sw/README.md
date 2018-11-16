@@ -14,31 +14,76 @@ Es enthält alle Funktionen, die benötigt werden, um ein angeschlossenes Produk
 Als Entwicklungsumgebung kann
 * der [Arm Mbed Online Compiler (empfohlen)](https://os.mbed.com/compiler/)
 * das [mbed CLI](https://github.com/ARMmbed/mbed-cli)
-* [PlatformIO](https://docs.platformio.org/en/latest/frameworks/mbed.html) mit [Visual Studio Code](https://code.visualstudio.com/) 
-verwendet werden.
 
 Wird der [Arm Mbed Online Compiler](https://os.mbed.com/compiler/) verwendet, ist der Sourcecode bzw. Link unten an der jeweiligen Seite, gekennzeichnet mit **Arm Mbed Online Compiler**, zu verwenden.
 
-### Installation und Quick Start PlatformIO 
+Ist kein Link **Arm Mbed Online Compiler** vorhanden, kann das [IoTKit V3 Template](https://os.mbed.com/teams/Disco-L475VG-IOT/code/template/) verwendet werden. Dabei ist der Inhalt von `main.cpp` mit dem Inhalt des Beispiels zu ersetzen.
 
-Siehe:
-* [PlatformIO IDE for VSCode](https://platformio.org/install/ide?install=vscode)
-* [Quick Start Guide](https://docs.platformio.org/en/latest/ide/vscode.html#quick-start)
+### Installation und Quick Start mbed-cli und Eclipse
 
-Anschliessend muss das Repository [https://github.com/mc-b/IoTKitV3](https://github.com/mc-b/IoTKitV3) in VSCode [geklont](https://code.visualstudio.com/docs/editor/versioncontrol#_cloning-a-repository) werden.
+[mbed cli](https://github.com/ARMmbed/mbed-cli) mit allen Abhängigkeiten (Python, GCC_ARM) wie unter [Installation](https://github.com/ARMmbed/mbed-cli#installation) beschrieben, installieren.
 
-Zu Testzwecken kann das Programm `gpio/DigitalOut` verwendet werden.
+Globale Konfigurationen für Board und Compiler setzen.
 
-Dazu muss der **PIO Home** Tab geöffnet werden und mittels **Open Project** das Verzeichnis `gpio/DigitalOut` der Workspace hinzugefügt werden.
+	mbed config --global TARGET DISCO_L475VG_IOT01A
+	mbed config --global TOOLCHAIN GCC_ARM
 
-Mittels den untereren Buttons (Pfeil nach links) kann das Programm compiliert und auf das Board uploadet werden.
+Verzeichnis mbed erstellen, Projekt initialisieren und benötigte Libraries clonen:
+
+	mkdir -p mbed475
+	cd mbed475
+	mbed new .
 	
-Anschliessend ist der Reset Button auf dem Board zu drücken.
+	# UI 
+	mbed add http://developer.mbed.org/teams/smdiotkitch/code/OLEDDisplay/
+	# Communication
+	mbed add https://mbed.org/teams/mqtt/code/MQTT/
+	mbed add https://github.com/ARMmbed/ntp-client.git
+	mbed add https://os.mbed.com/teams/sandbox/code/mbed-http/
+	# Bluetooth
+	mbed add https://developer.mbed.org/teams/Bluetooth-Low-Energy/code/BLE_API/
+	mbed add https://mbed.org/teams/Nordic-Semiconductor/code/nRF51822/
+	# Sensoren
+	mbed add http://developer.mbed.org/users/AtomX/code/MFRC522/ 
+	mbed add https://os.mbed.com/teams/IoTKitV3/code/HTS221lib/
+	mbed add https://developer.mbed.org/teams/ST/code/LIS3MDL/
+	mbed add https://developer.mbed.org/teams/ST/code/LSM6DSL/
+	mbed add https://os.mbed.com/teams/ST/code/LPS22HB/
+	mbed add https://os.mbed.com/teams/ST/code/VL53L0X/
+	
+Anschliessend eine Statische Library für mbed-os und alle obigen Libraries erstellen:
 
-**ACHTUNG**: Vor dem ersten Aufruf des Compilier sind die `lib` Unterverzeichnisse nach `<PlatformIO-Installation>/platformio/lib` zu kopieren.
+	mbed compile --library --no-archive --source=mbed-os --source OLEDDisplay \
+	             --source MQTT --source ntp-client --source mbed-http \
+	             --source BLE_API --source nRF51822 \
+	             --source HTS221lib --source MFRC522 --source LIS3MDL --source LSM6DSL --source LPS22HB --source VL53L0X \
+	             --build=../mbed475-os
+	
+Zum Schluss IoTKitV3 Beispiele clonen
+
+	git clone https://github.com/mc-b/IoTKitV3_disco.git
+	
+Die jeweiligen Beispiele können dann wie folgt compiliert werden, z.B. DigitalOut
+
+	cd IoTKitV3_disco/gpio/DigitalOut
+	mbed compile --source ../../../../mbed475-os/ --source . --build BUILD
+
+Das compilierte Programm ist im Verzeichnis `BUILD` mit der Endung `.bin`, hier `BUILD/DigitalOut.bin` und kann einfach mittels Drag&Drop auf das Board bzw. dessen Laufwerk kopiert werden.
+
+**Optional** Beispiele für Eclipse aufbereiten
+
+	mbed export -i eclipse_gcc_arm
+	
+Anschliessend mittels File -> Import -> Existing Projects `mbed` Projekt in Workspace importieren.	
+
+**Hinweise**:
+* Da die Libraries statisch Compiliert sind, sind die Einträge in `mbed_app.json` bereits im Sourcecode aufgelöst und Änderungen haben evtl. keinen Einfluss mehr. Lösung: evtl. `mbed_app.json` in den Libraries vor dem Compilieren der statischen Libraries entsprechend anpassen.
+* Ab mbed OS V5.10 ist die ISM43362 WiFi Driver Library Bestandteil von mbed OS.
+* Als Nachteil für das schnellere Compilieren, ist zu Erwähnen, dass die Programme grösser sind als normal, weil alle Libraries mit verlinkt werden.
 
 #### Serielle Console
 
-Die PlatformIO IDE beinhaltet ein Terminalprogramm um die Ausgabe via Serieller Schnittstelle des mbed Boards auszugeben.
+Die mbed CLI beinhaltet ein Terminalprogramm um die Ausgabe via Serieller Schnittstelle des mbed Boards auszugeben.
 
-Der Serial Monitor Button (Steckersymbol) ist unten auf der Statusleiste.
+	mbed sterm
+

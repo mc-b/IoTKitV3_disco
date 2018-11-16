@@ -1,7 +1,7 @@
 ## JSON (JavaScript Object Notation)
 
 ```js
-<pre class="brush: jscript">{ "my_array": [ "demo_string", 10], 
+{ "my_array": [ "demo_string", 10], 
               "my_boolean": true }								
 
 ```
@@ -25,4 +25,4 @@ Mittels der [MbedJSONValue](http://developer.mbed.org/users/samux/code/MbedJSONV
 
 ### Links
 
-*  [Arm Mbed Online Compiler](https://os.mbed.com/compiler/#import:/teams/Disco-L475VG-IOT/code/JSONParser/)
+*  [Arm Mbed Online Compiler](https://developer.mbed.org/compiler/#import:/teams/smdiotkit2ch/code/JSONParser/)
