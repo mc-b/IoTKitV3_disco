@@ -11,7 +11,7 @@ Beispiel JSON Code
 - - -
 
 ```js
-<pre>label: [ string, int ],
+label: [ string, int ],
           label: int              
 ```
 
