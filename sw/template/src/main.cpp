@@ -4,36 +4,42 @@
 
 // UI, Input und Output
 #include "OLEDDisplay.h"
-#include "QEI.h"
 
-OLEDDisplay oled( PTE26, PTE0, PTE1 );
-// DigitalIn button( PTC13 );
-// QEI wheel ( PTC6, PTA4, NC, 624 );
-// DigitalOut buzzer( D12 );
-
-// Sensoren
-#include "HTS221Sensor.h"
-#include "ISL29125.h"
-#include "lis3mdl_class.h"
-#include "LSM6DSLSensor.h"
-#include "VL6180x.h"
-#include "MFRC522.h"
-
-DevI2C devI2c( PTE0, PTE1 );
-// HTS221Sensor hum_temp( &devI2c );
-// ISL29125 RGBsensor( PTE0, PTE1 );
-// LIS3MDL magnetometer(&devI2c);
-// LSM6DSLSensor acc_gyro( &devI2c, LSM6DSL_ACC_GYRO_I2C_ADDRESS_LOW );
-// VL6180x sensor( PTE0, PTE1, 0x52 );
-// MFRC522 rfidReader( PTA16, PTC7, PTC5, D10, D8 );
-// AnalogIn hallSensor( PTC0 );
+OLEDDisplay oled;
 
 // Kommunikation
-#include "ESP8266Interface.h"
 #include "TCPSocket.h"
 #include "NTPClient.h"
 
-ESP8266Interface wifi( MBED_CONF_APP_WIFI_TX, MBED_CONF_APP_WIFI_RX );
+#include "ISM43362Interface.h"
+
+ISM43362Interface wifi( false );
+
+// DigitalIn button( USER_BUTTON1 );
+// DigitalOut buzzer( D3 );
+
+// Sensoren
+//#include "MFRC522.h"
+//#include "HTS221Sensor.h"
+//#include "LPS22HBSensor.h"
+//#include "lis3mdl_class.h"
+//#include "LSM6DSLSensor.h"
+//#include "VL53L0X.h"
+
+//DevI2C devI2c( PB_11, PB_10 );
+//HTS221Sensor hum_temp( &devI2c );
+//LPS22HBSensor press_temp(&devI2c);
+//LIS3MDL magnetometer(&devI2c);
+//LSM6DSLSensor acc_gyro( &devI2c, LSM6DSL_ACC_GYRO_I2C_ADDRESS_LOW );
+//DigitalOut shutdown_pin(PC_6);
+//VL53L0X range(&devI2c, &shutdown_pin, PC_7);
+//MFRC522 rfidReader( D11, D12, D13, D10, D8 );
+//AnalogIn hallSensor( A3 );
+
+// Aktoren
+//#include "Motor.h"
+//Motor m1(D3, D2, D4); // PWM, Vorwaerts, Rueckwarts
+//Motor m2(D5, D6, D7); // PWM, Vorwaerts, Rueckwarts
 
 /**
  *  Hauptprogramm
