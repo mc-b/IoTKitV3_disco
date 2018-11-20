@@ -51,5 +51,6 @@ HTML-Dokumente sind die Grundlage des World Wide Web und werden von Webbrowsern 
 
 ### Beispiele (ab mbed OS V5.x)
 
-* [HTTP and HTTPS on os.mbed.com](https://os.mbed.com/teams/sandbox/code/http-example/)
+* [HTTP Beispiel angepasst an Board](https://os.mbed.com/teams/Disco-L475VG-IOT/code/Disco_http-example/)
+* [Original HTTP and HTTPS on os.mbed.com](https://os.mbed.com/teams/sandbox/code/http-example/)
 
