@@ -6,17 +6,12 @@ Ein anderes Board oder der Mosquitto Client mosquitto_sub kann dieses Topic Abon
 
 ### Client
 
-	mosquitto_sub -h iot.eclipse.org -t mbed/k64f/iotkit/light/#
-		0.165866
-		0.165393
-		0.165057
+	mosquitto_sub -h iot.eclipse.org -t iotkit/#
+		0xBC,23.80,26.3,low
+		0xBC,28.80,26.3,middle
+		0xBC,33.90,26.3,high
 	
-	mosquitto_sub -h iot.eclipse.org -t mbed/k64f/iotkit/poti/#
-		0.378256
-		0.378180
-		0.372290
-
-Abonieren der MQTT Publish Meldungen via [Mosquitto](https://projects.eclipse.org/projects/technology.mosquitto) Client Utility mosquitto_sub.
+Abonnieren der MQTT Publish Meldungen via [Mosquitto](https://projects.eclipse.org/projects/technology.mosquitto) Client Utility mosquitto_sub.
 
 ### Links
 

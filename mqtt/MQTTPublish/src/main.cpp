@@ -1,22 +1,25 @@
 /** MQTT Publish von Sensordaten */
 #include "mbed.h"
 #include "HTS221Sensor.h"
-#include "easy-connect.h"
 #include "MQTTNetwork.h"
 #include "MQTTmbed.h"
 #include "MQTTClient.h"
-#include "OLEDDisplay.h"
+#include "Motor.h"
 
-static DevI2C devI2c(PTE0,PTE1);
+#include "ISM43362Interface.h"
+ISM43362Interface wifi( false );
+
+// Internal I2C 2
+static DevI2C devI2c( PB_11, PB_10 );
 static HTS221Sensor hum_temp(&devI2c);
-AnalogIn hallSensor( PTC0 );
+AnalogIn hallSensor( A3 );
 
 // Topic's
 char* topicTEMP =  "iotkit/sensor";
 char* topicALERT = "iotkit/alert";
 // MQTT Brocker
-char* hostname = "192.168.178.60";
-int port = 31883;
+char* hostname = "iot.eclipse.org";
+int port = 1883;
 // MQTT Message
 MQTT::Message message;
 // I/O Buffer
@@ -27,9 +30,12 @@ char cls[3][10] = { "low", "middle", "high" };
 int type = 0;
 
 // UI
-OLEDDisplay oled( PTE26, PTE0, PTE1);
-DigitalOut led1( D10 );
-DigitalOut alert( D13 );
+DigitalOut led1( LED1 );
+DigitalOut alert( LED2 );
+
+// Aktore(n)
+Motor m1(D5, D6, D7); // M02: PWM, Vorwaerts, Rueckwarts
+PwmOut speaker( D3 );
 
 /** Hilfsfunktion zum Publizieren auf MQTT Broker */
 void publish( MQTTNetwork &mqttNetwork, MQTT::Client<MQTTNetwork, Countdown> &client, char* topic )
@@ -51,10 +57,8 @@ void publish( MQTTNetwork &mqttNetwork, MQTT::Client<MQTTNetwork, Countdown> &cl
 
     MQTT::Message message;    
     
-    oled.cursor( 2, 0 );
-    oled.printf( "Topi: %s\n", topic );
-    oled.cursor( 3, 0 );    
-    oled.printf( "Push: %s\n", buf );
+    printf( "Topi: %s\n", topic );
+    printf( "Push: %s\n", buf );
     message.qos = MQTT::QOS0;
     message.retained = false;
     message.dup = false;
@@ -77,16 +81,18 @@ int main()
     float temp, hum;
     alert = 0;
     
-    oled.clear();
-    oled.printf( "MQTTPublish\r\n" );
-    oled.printf( "host: %s:%s\r\n", hostname, port );
+    printf( "MQTTPublish\r\n" );
+    printf( "host: %s:%s\r\n", hostname, port );
 
-    NetworkInterface* network = easy_connect(true);
-    if (!network) 
+    printf("\nConnecting to %s...\n", MBED_CONF_APP_WIFI_SSID);
+    int ret = wifi.connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
+    if (ret != 0) {
+        printf("\nConnection error\n");
         return -1;
+    }
 
     // TCP/IP und MQTT initialisieren (muss in main erfolgen)
-    MQTTNetwork mqttNetwork(network);
+    MQTTNetwork mqttNetwork( &wifi );
     MQTT::Client<MQTTNetwork, Countdown> client(mqttNetwork);
     
     /* Init all sensors with default params */
@@ -100,9 +106,19 @@ int main()
         hum_temp.get_temperature(&temp);
         hum_temp.get_humidity(&hum);    
         if  ( type == 0 )
+        {
             temp -= 5.0f;
+            m1.speed( 0.0f );
+        }
         else if  ( type == 2 )
+        {
             temp += 5.0f;
+            m1.speed( 1.0f );
+        }
+        else
+        {
+            m1.speed( 0.75f );
+        }
         sprintf( buf, "0x%X,%2.2f,%2.1f,%s", id, temp, hum, cls[type] ); 
         type++;
         if  ( type > 2 )
@@ -122,9 +138,17 @@ int main()
                 publish( mqttNetwork, client, topicALERT );
                 alert = 1;
             }
+            speaker.period( 1.0 / 3969.0 );      // 3969 = Tonfrequenz in Hz
+            speaker = 0.5f;
+            wait( 0.5f );
+            speaker.period( 1.0 / 2800.0 );
+            wait( 0.5f );
         }
         else
+        {
             alert = 0;
+            speaker = 0.0f;
+        }
         wait    ( 2.0f );
     }
 }
