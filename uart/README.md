@@ -24,3 +24,7 @@ Um den [CMOS-UART bzw. TTL-UART](http://de.wikipedia.org/wiki/Logikpegel) Pegel 
 ### Beispiele
 
 * [Serielle Schnittstelle](SerialAll/), [Serial Master](SerialMaster/), [Serial Slave](SerialSlave/)
+
+### Driver (nur Windows)
+
+* [PC Kommunikation](https://os.mbed.com/handbook/Windows-serial-configuration)
