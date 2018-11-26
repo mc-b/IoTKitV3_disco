@@ -8,10 +8,10 @@
 
 OLEDDisplay oled;
 
-AnalogIn hallSensor( A2 );
-DigitalOut led1( D10 );
-DigitalOut led2( D11 );
-DigitalIn reset( A0 );
+AnalogIn hallSensor( A3 );
+DigitalOut led1( LED1 );
+DigitalOut led2( LED2 );
+DigitalIn reset( USER_BUTTON );
 
 // HTTP Hilfsklassen
 EthernetInterface eth;
