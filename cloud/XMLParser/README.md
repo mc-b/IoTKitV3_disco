@@ -37,6 +37,3 @@ Die [Extensible Markup Language (engl. „erweiterbare Auszeichnungssprache“)]
 
 Mittels der [spxml (Simple Plain Xml parser)](http://developer.mbed.org/users/hlipka/code/spxml/) Library können XML Strukturen geparst und anschliessend traversiert werden.
 
-### Links
-
-*  [Arm Mbed Online Compiler](https://developer.mbed.org/compiler/#import:/teams/smdiotkit2ch/code/XMLParser/)

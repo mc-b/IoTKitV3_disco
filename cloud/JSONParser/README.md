@@ -23,6 +23,3 @@ Die [JavaScript Object Notation, kurz JSON](http://de.wikipedia.org/wiki/JavaScr
 
 Mittels der [MbedJSONValue](http://developer.mbed.org/users/samux/code/MbedJSONValue/) Library können JSON Strukturen geparst oder erzeugt werden.
 
-### Links
-
-*  [Arm Mbed Online Compiler](https://developer.mbed.org/compiler/#import:/teams/smdiotkit2ch/code/JSONParser/)

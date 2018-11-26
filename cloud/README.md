@@ -17,7 +17,7 @@ Die gebräuchlichsten Format sind HTML, [XML](http://de.wikipedia.org/wiki/Exten
 *   Intelligente, Vorausschauende Heizung, z.B. Heizung nicht aktivieren, wenn Sonnenschein angekündigt ist
 *   Vorbeugung von Unwetterschäden, z.B. durch Einfahren der Sonnenstoren bei aufkommenden Sturm
 
-### Beispiele (mbed OS V2.x - ca. V5.3)
+### Beispiele 
 
 **Grundlagen**
 

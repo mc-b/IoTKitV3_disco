@@ -1,9 +1,8 @@
-/** Hall Sensor - Alarm via IFTTT
-*/
+/** Beispiel Abfrage Cloud Dienst Sunrise / Sunset
+ */
 #include "mbed.h"
-#include "HTTPClient.h"
-#include "data/HTTPText.h"
-#include "EthernetInterface.h"
+#include "http_request.h"
+#include "network-helper.h"
 #include "OLEDDisplay.h"
 
 OLEDDisplay oled;
@@ -14,18 +13,23 @@ DigitalOut led2( LED2 );
 DigitalIn reset( USER_BUTTON );
 
 // HTTP Hilfsklassen
-EthernetInterface eth;
-HTTPClient http;
 char *finishMsg = "https://maker.ifttt.com/trigger/cooker_finish/with/key/mY3_IZhJSfm-tj3UVytotaqtD1L5AIEUMcal8nDy4dJ";
 // I/O Buffer
 char message[256];
 
 int main()
 {
-    // Ethernet
-    eth.init();
-    eth.connect();
+    oled.clear();
+    oled.printf( "Hall Sensor Alarm\n" );
+    // Connect to the network with the default networking interface
+    // if you use WiFi: see mbed_app.json for the credentials
+    NetworkInterface* network = connect_to_default_network_interface();
     
+    if (!network) {
+        printf("Cannot connect to the network, see serial output\n");
+        return 1;
+    }
+
     led1 = 0;
     led2 = 1;
     oled.clear();
@@ -43,7 +47,16 @@ int main()
             {
                 oled.cursor( 1, 0 );
                 oled.printf( "ALARM !!!" );
-                http.get( finishMsg, message, sizeof(message) );
+                HttpRequest* get_req = new HttpRequest( network, HTTP_GET, finishMsg );
+
+                HttpResponse* get_res = get_req->send();
+                // Error
+                if ( !get_res )
+                {
+                    printf("HttpRequest failed (error code %d)\n", get_req->get_error());
+                    return 1;
+                }
+                delete get_req;
                 led1 = 1;
                 led2 = 0;
             }
@@ -60,5 +73,4 @@ int main()
         }
         wait( 0.2f );
     }
-}                                       
-    
+}
