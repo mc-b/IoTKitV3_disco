@@ -28,7 +28,7 @@ int main()
     {
         myled = 1;
         HttpRequest* post_req = new HttpRequest(network, HTTP_POST, "https://query.yahooapis.com/v1/public/yql");
-        //post_req->set_header("Content-Type", "application/xml");
+        post_req->set_header("Content-Type", "application/x-www-form-urlencoded");
 
         const char body[] = "q=select * from weather.forecast where woeid=784794\nformat=xml\n";
         HttpResponse* post_res = post_req->send(body, strlen(body));
