@@ -7,9 +7,6 @@
 #include "spxmlnode.hpp"
 #include "spxmlhandle.hpp"
 
-// I/O Buffer
-char message[6000];
-
 DigitalOut myled(LED1);
 
 int main()
@@ -27,17 +24,17 @@ int main()
     while( 1 )
     {
         myled = 1;
-        HttpRequest* post_req = new HttpRequest(network, HTTP_POST, "https://query.yahooapis.com/v1/public/yql");
-        post_req->set_header("Content-Type", "application/x-www-form-urlencoded");
+        HttpRequest* get_req = new HttpRequest(network, HTTP_GET, "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid=784794");
 
-        const char body[] = "q=select * from weather.forecast where woeid=784794\nformat=xml\n";
-        HttpResponse* post_res = post_req->send(body, strlen(body));
+        HttpResponse* post_res = get_req->send();
         if (!post_res)
         {
-            printf("HttpRequest failed (error code %d)\n", post_req->get_error());
+            printf("HttpRequest failed (error code %d)\n", get_req->get_error());
             return 1;
         }
         printf("\n----- HTTP POST response -----\n");
+        printf("\nBody (%d bytes):\n\n%s\n", post_res->get_body_length(), post_res->get_body_as_string().c_str());
+
         // XML Parser
         SP_XmlDomParser parser;
         // char[] bzw. XML parsen
@@ -71,7 +68,7 @@ int main()
             else
                 printf( "missing forcast\n" );
         }
-        delete post_req;
+        delete get_req;
         myled = 0;
         wait(10);
     }

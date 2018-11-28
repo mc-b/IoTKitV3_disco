@@ -13,11 +13,11 @@ static DevI2C devI2c( PB_11, PB_10 );
 static HTS221Sensor hum_temp(&devI2c);
 
 /** ThingSpeak URL und API Key ggf. anpassen */
-char host[] = "https://api.thingspeak.com/update.json";
+char host[] = "http://api.thingspeak.com/update";
 char key[] = "A2ABBMDJYRAMA6JM";
 
 // I/O Buffer
-char message[6000];
+char message[1024];
 
 DigitalOut myled(LED1);
 
@@ -48,22 +48,22 @@ int main()
     {
         hum_temp.get_temperature(&value1);
         hum_temp.get_humidity(&value2);
-        sprintf( message, "key=%s\nfield1=%.2f\nfield2=%.2f%%\n", key, value1, value2 );
+
+        sprintf( message, "%s?key=%s&field1=%f&field2=%f", host, key, value1, value2 );
+        printf( "%s\n", message );
         oled.cursor( 1, 0 );
         oled.printf( "temp: %3.2f\nhum : %3.2f", value1, value2 );
 
         myled = 1;
-        HttpRequest* post_req = new HttpRequest( network, HTTP_POST, host );
-        //post_req->set_header("Content-Type", "application/x-www-form-urlencoded");
+        HttpRequest* get_req = new HttpRequest( network, HTTP_GET, message );
 
-        HttpResponse* post_res = post_req->send( message, strlen(message) );
-        if (!post_res)
+        HttpResponse* get_res = get_req->send();
+        if (!get_res)
         {
-            printf("HttpRequest failed (error code %d)\n", post_req->get_error());
+            printf("HttpRequest failed (error code %d)\n", get_req->get_error());
             return 1;
         }
-        printf("\n----- HTTP POST response -----\n");
-        delete post_req;
+        delete get_req;
         myled = 0;
         wait(10);
     }

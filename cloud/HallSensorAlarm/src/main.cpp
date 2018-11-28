@@ -13,7 +13,7 @@ DigitalOut led2( LED2 );
 DigitalIn reset( USER_BUTTON );
 
 // HTTP Hilfsklassen
-char *finishMsg = "https://maker.ifttt.com/trigger/cooker_finish/with/key/mY3_IZhJSfm-tj3UVytotaqtD1L5AIEUMcal8nDy4dJ";
+char *finishMsg = "http://maker.ifttt.com/trigger/hallsensoralarm/with/key/ge6H2PIYtdpW0D6SY3w9xu38_1SkvKWIP6C9if4WyRb";
 // I/O Buffer
 char message[256];
 
@@ -56,6 +56,8 @@ int main()
                     printf("HttpRequest failed (error code %d)\n", get_req->get_error());
                     return 1;
                 }
+                else
+                    printf("\nBody (%d bytes):\n\n%s\n", get_res->get_body_length(), get_res->get_body_as_string().c_str());
                 delete get_req;
                 led1 = 1;
                 led2 = 0;
