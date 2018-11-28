@@ -36,4 +36,3 @@ IoTKit V3 Disco Beispiele und Dokumentation
 * [Wearables](wearables/)
 * [Roboter](roboter/)
 * [NFC / RFID](rfid/)
-* [Workflow](workflow/)

@@ -19,12 +19,13 @@ nRF Connect App Printscreen
 * Smartphone mit nRF Connect App
 
 **Installation**
-* mbed Programm [BLE_HeartRate ](https://os.mbed.com/teams/Disco-L475VG-IOT/code/BLE_HeartRate/) auf IoTKit V3 laden.
+* mbed Programm [BLE_HeartRate ](https://os.mbed.com/teams/ST/code/mbed-os-example-ble-HeartRate/?platform=ST-Discovery-L475E-IOT01A) auf IoTKit V3 laden.
 * nRF Connect App auf Smartphone starten und nRF Connect App starten.
 * Nach neuen Geräten scannen.
 * `HRM1` Gerät Verbinden und Herzfrequenz auslesen. 
 
 ### Links
 
+* Weitere Beispiele (rechts unten) auf [Board Overview Site](https://os.mbed.com/platforms/ST-Discovery-L475E-IOT01A/)
 * [mbed Bluetooth Team](https://os.mbed.com/teams/Bluetooth-Low-Energy/)
 * [Bluetooth Home Page](https://www.bluetooth.com/)
