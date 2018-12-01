@@ -40,6 +40,7 @@ Verzeichnis mbed erstellen, Projekt initialisieren und benötigte Libraries clon
 	mbed add https://mbed.org/teams/mqtt/code/MQTT/
 	mbed add https://github.com/ARMmbed/ntp-client.git
 	mbed add https://os.mbed.com/teams/sandbox/code/mbed-http/
+	mbed add https://os.mbed.com/teams/Disco-L475VG-IOT/code/wifi-ism43362/
 	# Bluetooth
 	mbed add https://developer.mbed.org/teams/Bluetooth-Low-Energy/code/BLE_API/
 	mbed add https://mbed.org/teams/Nordic-Semiconductor/code/nRF51822/
@@ -55,7 +56,7 @@ Anschliessend eine Statische Library für mbed-os und alle obigen Libraries erst
 
 	mbed compile --library --no-archive --source=mbed-os --source OLEDDisplay \
 	             --source MQTT --source ntp-client --source mbed-http \
-	             --source BLE_API --source nRF51822 \
+	             --source BLE_API --source nRF51822 --source wifi-ism43362 \
 	             --source HTS221lib --source MFRC522 --source LIS3MDL --source LSM6DSL --source LPS22HB --source VL53L0X \
 	             --build=../mbed475-os
 	
@@ -87,3 +88,7 @@ Die mbed CLI beinhaltet ein Terminalprogramm um die Ausgabe via Serieller Schnit
 
 	mbed sterm
 
+### Links
+
+* Terminalemulations Programme: [Windows](http://sourceforge.jp/projects/ttssh2/releases/), [Mac](http://freeware.the-meiers.org/), [Linux](http://manpages.ubuntu.com/manpages/vivid/man8/picocom.8.html)
+* [PC Driver (nur Windows)](https://os.mbed.com/handbook/Windows-serial-configuration)
