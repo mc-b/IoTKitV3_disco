@@ -4,7 +4,6 @@
 
 SPI spi( D11, D12, D13 );
 DigitalOut ss( D9 );   // Steuerpin!!!
-char cmd[2];
 
 // Systemregister Dot LED Matrix
 #define reg_decodeMode   0x09
