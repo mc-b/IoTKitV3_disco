@@ -79,7 +79,6 @@ Anschliessend mittels File -> Import -> Existing Projects `mbed` Projekt in Work
 
 **Hinweise**:
 * Da die Libraries statisch Compiliert sind, sind die Einträge in `mbed_app.json` bereits im Sourcecode aufgelöst und Änderungen haben evtl. keinen Einfluss mehr. Lösung: evtl. `mbed_app.json` in den Libraries vor dem Compilieren der statischen Libraries entsprechend anpassen.
-* Ab mbed OS V5.10 ist die ISM43362 WiFi Driver Library Bestandteil von mbed OS.
 * Als Nachteil für das schnellere Compilieren, ist zu Erwähnen, dass die Programme grösser sind als normal, weil alle Libraries mit verlinkt werden.
 
 #### Serielle Console
