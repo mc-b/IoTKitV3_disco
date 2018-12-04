@@ -10,15 +10,14 @@
 
 Der Servo (auch Rudermaschine) hat die Aufgabe, entsprechend dem Signal, dass er vom Empfänger erhält, die Ruder (oder andere Komponenten am Modell) zu stellen.
 
-Servo lassen sich, in der Regel, von 0 - 180° bewegen. Der entsprechende Stellwinkel wird mittels eines Wert von 0.0 bis 1.0 angegeben.
+Servo lassen sich, in der Regel, von 0 - 180° bewegen. Für die Ansteuerung wird ein PwmOut Signal mit einer fixen Periode von 20 Millisekunden verwendet.
+
+Das Ruder wird mittels einer Pulsweite von ca. 900 - 2100 Microsekunden positioniert. 
+
+	servo.period_ms( 20 );
+	servo.pulsewidth_us( 900 + pos ); 
 
 Es gibt analoge und digitale Servo&#039;s. Der Unterschied liegt darin, dass digitale Servo erst anfangen den Stellwinkel zu wechseln, wenn ein sauberes Signal anliegt.
-
-Servo haben einen Stellmoment bzw. die Stellkraft, z.B. 9 Gramm, welche nicht überschritten werden sollte.
-
-Servo benötigt die [Servo Library](http://developer.mbed.org/users/simon/code/Servo/). Diese Steuert einen Servo mittels PWM Signal an.
-
-Servo müssen in der mbed Plattform einmalig kalibriert werden, ansonsten wird nicht der volle 180° Winkel benützt. Ein gutes Programm dazu ist [ServoProgram](https://os.mbed.com/users/simon/code/ServoProgram/) von Simon Ford.
 
 Weitere Informationen und eine Ausführliche Einführung in Englisch [An Introduction to RC Servos](http://developer.mbed.org/users/4180_1/notebook/an-introduction-to-servos/)
 
