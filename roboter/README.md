@@ -11,7 +11,6 @@ Einen kleinen Roboter mit Hilfe eines Mikroprozessors zu steuern ist ganz einfac
 
 ### Beispiele
 
-* [Roboter Arm mittels Buttons bewegen](RoboterButton/)
 * [Automatische Steuerung Roboter Arm](Roboter/)
 
 ### Links

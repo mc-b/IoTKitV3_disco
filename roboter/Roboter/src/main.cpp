@@ -2,48 +2,48 @@
 */
 
 #include "mbed.h"
-#include "Motor.h"
-#include "Servo.h"
+#include "OLEDDisplay.h"
 
-// Geschwindigkeit
-AnalogIn poti ( A0 );
-
-// Motor an M01
-Motor m1(D3, D2, D4); // PWM, Vorwaerts, Rueckwarts
+// Display
+OLEDDisplay oled;
 
 // Servos
-Servo foot( D6 );
-Servo base( D7 );
-Servo arm( D9 );
-Servo pincer( D10 );
+PwmOut foot( D6 );
+PwmOut base( D9 );
+PwmOut arm( D10 );
+PwmOut pincer( D11 );
+
+// Max pulsewidth Servo = 0.0 - 1.0
+#define MIN			800
+#define MAX         2100
 
 // Move Positionen
 float footLeft = 0.2f;
 float footRight = 0.8f;
-float baseUp = 0.5f;
-float baseDown = 0.15f;
-float armUp = 0.5f;
-float armDown = 0.25f;
-float pincerOpen = 0.3f;
-float pincerClose = 0.04f;
+float baseUp = 0.4f;
+float baseDown = 0.1f;
+float armUp = 0.8f;
+float armDown = 0.1f;
+float pincerOpen = 0.8f;
+float pincerClose = 0.2f;
 
 /** Servo langsam bewegen */
-void servoMove( Servo &servo, float start, float end )
+void servoMove( PwmOut &servo, float start, float end )
 {
     if  ( start < end )
     {
         for ( float i = start; i < end; i += 0.0005f )
         {
-            servo = i;
-            wait    ( 0.005f );
+            servo.pulsewidth_us( ((MAX-MIN) * i) + MIN );
+            wait    ( 0.004f );
         }
     }
     else
     {
         for ( float i = start; i > end; i -= 0.0005f )
         {
-            servo = i;
-            wait    ( 0.005f );
+            servo.pulsewidth_us( ((MAX-MIN) * i) + MIN );
+            wait    ( 0.004f );
         }        
     }
 }
@@ -51,34 +51,41 @@ void servoMove( Servo &servo, float start, float end )
 /** Hauptprogramm */
 int main()
 {
-    // Servo kalibrieren, damit er die vollen 180° verwendet.
-    foot.calibrate ( 0.0009, 180.0);
-    base.calibrate ( 0.0009, 180.0);
-    arm.calibrate ( 0.0009, 180.0);
-    pincer.calibrate ( 0.0009, 180.0);
-    
+	foot.period_ms(20);
+	base.period_ms(20);
+	arm.period_ms(20);
+	pincer.period_ms(20);
+
     while   ( 1 )
     {
-        m1.speed( poti );
+        oled.clear();
+    	oled.printf( "up - open pincer\n");
+        servoMove( arm, armDown, armUp );
+        servoMove( base, baseDown, baseUp );
+        servoMove( pincer, pincerClose, pincerOpen );    // open
         servoMove( foot, footLeft, footRight );
-        servoMove( base, baseUp, baseDown );        
+        wait( 0.5f );
+
+    	oled.clear();
+    	oled.printf( "down - close pincer\n");
+        servoMove( base, baseUp, baseDown );
         servoMove( arm, armUp, armDown );
         servoMove( pincer, pincerOpen, pincerClose );    // close
-        wait( 1.0f );
-        servoMove( base, baseDown, baseUp );        
+        wait( 0.5f );
+
+    	oled.clear();
+    	oled.printf( "up - close pincer\n");
         servoMove( arm, armDown, armUp );
-        m1.speed( 0.0f );
-        wait( 1.0f );
-        
-        m1.speed( poti * -1.0f );
+        servoMove( base, baseDown, baseUp );        
         servoMove( foot, footRight, footLeft );
-        servoMove( base, baseUp, baseDown );        
+        wait( 0.5f );
+        
+        oled.clear();
+    	oled.printf( "down - open pincer\n");
+        servoMove( base, baseUp, baseDown );
         servoMove( arm, armUp, armDown );
         servoMove( pincer, pincerClose, pincerOpen );    // open
-        wait( 1.0f );
-        servoMove( base, baseDown, baseUp );        
-        servoMove( arm, armDown, armUp );
-        m1.speed( 0.0f );        
-        wait( 1.0f );
+        wait( 0.5f );
+
      }
 }
