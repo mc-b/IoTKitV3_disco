@@ -33,4 +33,5 @@ Das Protokoll des I²C-Bus ist von der Definition her recht einfach, aber physik
 * [Capacitive digital sensor for relative humidity and temperature (HTS221)](HTS221/)
 * [High-performance 3-axis magnetometer (LIS3MDL)](LIS3MDL/)
 * [3D accelerometer and 3D gyroscope (LSM6DSL)](LSM6DSL/)
+* [Time-of-Flight and gesture-detection sensor (VL53L0X)](VL53L0X)
 * [mbed - Arduino Kommunikation](mbed2Arduino/)
