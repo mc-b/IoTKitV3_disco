@@ -45,4 +45,4 @@ Der PIR-Sensor (englisch passive infrared) ist der am häufigsten eingesetzte Ty
 
 ### Links
 
-*  [Arm Mbed Online Compiler](https://os.mbed.com/compiler/#import:/teams/Disco-L475VG-IOT/code/PIRSensor/)
+*  [Arm Mbed Online Compiler](https://os.mbed.com/compiler/#import:/teams/smdiotkitch/code/PIRSensor/)
