@@ -9,3 +9,7 @@ Mittels folgender Grundklassen kann den GPIO Pins ein Zweck vorgegeben werden:
 * [DigitalIn](DigitalIn/)  - liefert je nach Spannung: 0 Volt eine 0 oder 3.3 - 5 Volt eine 1.
 * [AnalogIn](AnalogIn/)    - Umsetzung eines Analogssignals in einen Wert.
 * [PwmOut](PwmOut/) und [PwmOutPeriod](PwmOutPeriod/) - Pulsweitenmodulation für die Erzeugung einer elektrische Spannung zwischen Ground (0 Volt) und 3.3 Volt.
+
+
+Standard Pins sind mit **D0 - D15**, **A0 - A5** (analog Arduino) gekennzeichnet. **RX/TX**, **SDA,SCL** und **SS, MOSI, MISO, SLCK** sind Pins für Bussysteme. 
+Daneben sind  Pin mit Ground (**GND**) und +5 Volt (**+5V**) vorhanden um die Verkabelung von externen Sensoren und Aktoren zu vereinfachen.
