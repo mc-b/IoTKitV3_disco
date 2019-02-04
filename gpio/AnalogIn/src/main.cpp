@@ -3,7 +3,7 @@
 */
 #include <mbed.h>
 
-AnalogIn poti( A0 );
+AnalogIn poti( A3 );
 DigitalOut led1 ( LED1 );
 
 int main()

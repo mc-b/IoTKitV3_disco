@@ -5,7 +5,7 @@ Allzweckeingabe/-ausgabe (engl. GPIO - General Purpose Input/Output) ist ein all
 
 Mittels folgender Grundklassen kann den GPIO Pins ein Zweck vorgegeben werden:
 
-* [DigitalOut](DigitalOut/)
-* [DigitalIn](DigitalIn/) 
-* [AnalogIn](AnalogIn/)
-* [PwmOut](PwmOut/) und [PwmOutPeriod](PwmOutPeriod/)
+* [DigitalOut](DigitalOut/) -  Pin zwischen 0 (0 Volt) und 1 (3.3 Volt) hin und her schalten.
+* [DigitalIn](DigitalIn/)  - liefert je nach Spannung: 0 Volt eine 0 oder 3.3 - 5 Volt eine 1.
+* [AnalogIn](AnalogIn/)    - Umsetzung eines Analogssignals in einen Wert.
+* [PwmOut](PwmOut/) und [PwmOutPeriod](PwmOutPeriod/) - Pulsweitenmodulation für die Erzeugung einer elektrische Spannung zwischen Ground (0 Volt) und 3.3 Volt.
