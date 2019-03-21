@@ -39,3 +39,17 @@ IoTKit V3 Disco Beispiele und Dokumentation
 * [Workflow](workflow/)
 * [Built with Mbed](https://www.mbed.com/built-with-mbed/)
 
+## Links
+
+* [ARM mbed](https://www.mbed.com)
+* [Beispiele von Implementierungen mit mbed OS](https://www.mbed.com/built-with-mbed/)
+* [mbed Labs](https://labs.mbed.com/)
+* [ARM mbed YouTube Channel](https://www.youtube.com/channel/UCNcxd73dSceKtU77XWMOg8A)
+
+
+* [Die drei Hauptklassen von IoT](https://www.arm.com/products/iot/soc)
+* [Geschäftsmodelle und IoT](https://www.iot-lab.ch/publications/#whitepapers)
+
+
+* [IoTKit Übersicht alle Versionen](https://github.com/mc-b/IoTKit#internet-der-dinge-kit)
+
