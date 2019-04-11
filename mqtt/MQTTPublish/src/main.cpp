@@ -18,7 +18,7 @@ AnalogIn hallSensor( A3 );
 char* topicTEMP =  "iotkit/sensor";
 char* topicALERT = "iotkit/alert";
 // MQTT Brocker
-char* hostname = "iot.eclipse.org";
+char* hostname = "broker.hivemq.com";
 int port = 1883;
 // MQTT Message
 MQTT::Message message;
