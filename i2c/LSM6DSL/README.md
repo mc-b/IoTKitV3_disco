@@ -19,7 +19,7 @@ Hohe Robustheit gegenüber mechanischen Schocks macht den LSM6DSL zur bevorzugte
 ### Links
 
 * [Produktseite](https://www.st.com/en/mems-and-sensors/hts221.html)
-* [Online Compiler Variante](https://os.mbed.com/teams/IoTKitV3/code/LSM6DSL/)
+* [Online Compiler Variante](https://os.mbed.com/teams/Disco-L475VG-IOT/code/LSM6DSL/)
 * [Schrittzähler Beispiel](https://os.mbed.com/teams/Disco-L475VG-IOT/code/LSM6DSL_Pedometer/)
 * [Schieflage Beispiel](https://os.mbed.com/teams/Disco-L475VG-IOT/code/LSM6DSL_Tilt/)
 * [Antippen Beispiel](https://os.mbed.com/teams/Disco-L475VG-IOT/code/LSM6DSL_SingleTap/)
